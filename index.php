@@ -1,34 +1,31 @@
 <?php
-    require 'markdown.php';
     require 'config.php';
     require 'helper.php';
     
     list($year, $month, $day, $title) = fetch_page_parameters();
-    $file_content = false;
+    $page = array();
     
     if ($year && $month && $day && $title) {
-        $page_title  = format_title($title);
-        $filename = "{$year}-{$month}-{$day}-{$title}.markdown";
-        if (valid_filename($filename) && file_exists($conf['pages_folder'].$filename)) {
-            $file_content = Markdown(file_get_contents($conf['pages_folder'].$filename));
+        $filename = build_filename($year, $month, $day, $title);
+        if (valid_filename($filename, $conf['pages_folder'])) {
+            $page = process_page_file($filename, $conf['pages_folder']);
         } 
     } elseif (count($_GET) == 0) {
-        $page_title = 'Mobile HTML5 Development';
-        $directory = scandir($conf['pages_folder'], 1);
-        $file_content = '<pre>'.print_r($directory,true).'</pre>';
+        $pages           = fetch_pages($conf['pages_folder'],5);
+        $page['title']   = $conf['blog_name'];
+        $page['content'] = '<pre>'.print_r($pages,true).'</pre>';
     }
     
-    if (!$file_content) {
+    if (!isset($page['content'])) {
         header("HTTP/1.0 404 Not Found");
-        $page_title = $conf['404_title'];
-        $file_content = Markdown($conf['404_message']);
+        $page = fetch_404_page($conf);
     }
     
     require 'header.php';
 ?>
 
-<h1><?= $page_title ?></h1>
-<?= $file_content ?>
+<h1><?= $page['title'] ?></h1>
+<?= $page['content'] ?>
 
 <?php 
     require 'footer.php';
