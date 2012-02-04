@@ -50,4 +50,16 @@ function fetch_404_page($conf) {
     return $page;
 }
 
+function is_archive_page() {
+    return isset($_GET['archive']) && (count($_GET) == 1);
+}
+
+function is_home_page() {
+    return count($_GET) == 0;
+}
+
+function is_permalink_page() {
+    return isset($_GET['year']) && isset($_GET['month']) && isset($_GET['day']) && isset($_GET['title']) && (count($_GET) == 4);
+}
+
 ?>

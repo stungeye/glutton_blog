@@ -2,15 +2,18 @@
     require 'config.php';
     require 'helper.php';
     
-    list($year, $month, $day, $title) = fetch_page_parameters();
     $page = array();
     
-    if ($year && $month && $day && $title) {
+    if (is_permalink_page()) {
+        list($year, $month, $day, $title) = fetch_page_parameters();
         $filename = build_filename($year, $month, $day, $title);
         if (valid_filename($filename, $conf['pages_folder'])) {
             $page = process_page_file($filename, $conf['pages_folder']);
         } 
-    } elseif (count($_GET) == 0) {
+    } elseif (is_archive_page()) {
+        $page['title'] = 'Archive';
+        $page['content'] = 'Arhive';
+    } elseif (is_home_page()) {
         $pages           = fetch_pages($conf['pages_folder'],5);
         $page['title']   = $conf['blog_name'];
         $page['content'] = '<pre>'.print_r($pages,true).'</pre>';
