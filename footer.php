@@ -13,6 +13,20 @@
                     <? endforeach; ?>
                 </ul>
             </section>
+            
+            <section id="google_sidebar">
+                <script type="text/javascript"><!--
+                google_ad_client = "ca-pub-8119657288856342";
+                /* Html5 Blog Side */
+                google_ad_slot = "9504934000";
+                google_ad_width = 160;
+                google_ad_height = 600;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </section>
         </aside>
         <footer>
             <p id="license">
@@ -33,5 +47,14 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+    <script type="text/javascript">
+    var disqus_shortname = 'mobilehtml5dev';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+  </script>
 </body>
 </html>

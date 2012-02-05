@@ -25,7 +25,7 @@ header a, h2 a {
     width: 916px; 
     margin: 0 auto; 
     padding: 24px 22px 0 22px;
-    /* background: url(/images/grid.jpg); */
+/*    background: url(/images/grid.jpg); */
     overflow: hidden;
 }
 
@@ -118,6 +118,7 @@ header {
             #pagination li.newer {
                 float: right;
             }
+
         
 
 #sidebar {
@@ -174,6 +175,14 @@ header {
         }
         
         
+#google_sidebar {
+    margin-top: -6px !important;
+}
+
+#google_above_comments {
+    margin-top: -26px;
+    margin-bottom: 36px;
+}
         
         
         

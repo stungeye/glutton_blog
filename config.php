@@ -2,6 +2,7 @@
 
 $conf['site_url']     = 'http://mobilehtml5.stungeye.com';
 $conf['pages_folder'] = './pages/';
+$conf['about_page']   = './about.markdown';
 $conf['blog_name']    = 'Mobile HTML5 Development';
 $conf['blog_author']  = 'Kyle Geske';
 $conf['404_message']  = "We could not find the page you were looking for.\n\nReturn [home]({$conf['site_url']})?";

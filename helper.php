@@ -19,6 +19,10 @@ function valid_filename($filename, $folder) {
     return (preg_match($pattern, $filename) == 1) && file_exists($folder.$filename);
 }
 
+function file_markdown($filename) {
+    return Markdown(file_get_contents($filename));
+}
+
 function process_page_file($filename, $folder, $date_format, $no_content = false) {
     $pattern = "/^(\d{4})-(\d{2})-(\d{2})-([a-z\-]+)\.markdown$/";
     preg_match($pattern, $filename, $matches);
@@ -30,7 +34,7 @@ function process_page_file($filename, $folder, $date_format, $no_content = false
     $page['epoch_time'] = $date->format('U');
     
     if (!$no_content) {
-        $page['content'] = Markdown(file_get_contents($folder.$filename));
+        $page['content'] = file_markdown($folder.$filename);
     }
     return $page;
 }
@@ -55,11 +59,25 @@ function fetch_pages($folder, $date_format, $limit = false, $no_content = false)
 function fetch_404_page($conf) {
     $page['title']   = $conf['404_title'];
     $page['content'] = Markdown($conf['404_message']);
+    $date            = new DateTime();
+    $page['date']    = $date->format($conf['date_format']);
     return $page;
+}
+
+function html_title($page_title, $blog_name) {
+    if ($page_title == '') {
+        return $blog_name;
+    } else {
+        return $page_title . ' - ' . $blog_name;
+    }
 }
 
 function is_archive_page() {
     return isset($_GET['archive']) && (count($_GET) == 1);
+}
+
+function is_about_page() {
+    return isset($_GET['about']) && (count($_GET) == 1);
 }
 
 function is_home_page() {
