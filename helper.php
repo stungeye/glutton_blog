@@ -1,5 +1,5 @@
 <?php
-require 'markdown.php';
+require 'lib/markdown.php';
 
 function fetch_page_parameters() {
     $parameter_names = array('year','month','day','title');
@@ -19,11 +19,15 @@ function valid_filename($filename, $folder) {
     return (preg_match($pattern, $filename) == 1) && file_exists($folder.$filename);
 }
 
-function process_page_file($filename, $folder) {
-    $pattern = "/^\d{4}-\d{2}-\d{2}-([a-z\-]+)\.markdown$/";
+function process_page_file($filename, $folder, $date_format) {
+    $pattern = "/^(\d{4})-(\d{2})-(\d{2})-([a-z\-]+)\.markdown$/";
     preg_match($pattern, $filename, $matches);
-    $page['content'] = Markdown(file_get_contents($folder.$filename));
-    $page['title']   = format_title($matches[1]);
+    $page['content']   = Markdown(file_get_contents($folder.$filename));
+    $page['title']     = format_title($matches[4]);
+    $page['permalink'] = "/{$matches[1]}/{$matches[2]}/{$matches[3]}/{$matches[4]}";
+    $date              = new DateTime("{$matches[1]}-{$matches[2]}-{$matches[3]}");
+    $page['date']      = $date->format($date_format);
+    $page['epoch_time']= $date->format('U');
     return $page;
 }
 
@@ -31,7 +35,7 @@ function build_filename($year, $month, $day, $title) {
     return "{$year}-{$month}-{$day}-{$title}.markdown";
 }
 
-function fetch_pages($folder, $limit = false) {
+function fetch_pages($folder, $date_format, $limit = false) {
     $pages = array();
     $files = scandir($folder, 1);
     $files = array_slice($files, 0, -2);
@@ -39,7 +43,7 @@ function fetch_pages($folder, $limit = false) {
         if ($limit && ($i >= $limit)) {
             break;
         }
-        $pages[] = process_page_file($file, $folder);
+        $pages[] = process_page_file($file, $folder, $date_format);
     }
     return $pages;
 }

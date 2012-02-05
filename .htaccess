@@ -2,3 +2,4 @@ Options +FollowSymlinks
 RewriteEngine on
 RewriteRule ^(\d{4})/(\d{2})/(\d{2})/([a-z\-]+)$ ./index.php?year=$1&month=$2&day=$3&title=$4 [NC]
 RewriteRule ^archive/?$ ./index.php?archive
+RewriteRule ^atom/?$ ./atom.php
