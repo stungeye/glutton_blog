@@ -11,7 +11,7 @@
             $page = process_page_file($filename, $conf['pages_folder'], $conf['date_format']);
         } 
     } elseif (is_archive_page()) {
-        $page['title']  = $conf['blog_name'] . ' Archive';
+        $page['title']   = $conf['blog_name'] . ' Archive';
         $pages           = fetch_pages($conf['pages_folder'],$conf['date_format']);
         $page['content'] = 'Arhive';
     } elseif (is_home_page()) {
@@ -29,6 +29,15 @@
 ?>
 
 <? if (is_home_page()): ?>
+    <? foreach ($pages as $page): ?>
+        <article>
+            <h2><a href="<?= $conf['site_url'] . $page['permalink'] ?>"><?= $page['title'] ?></a></h2>
+            <?= $page['content'] ?>
+            <p class="postinfo">
+                <a href="<? $conf['site_url'] . $page['permalink'] ?>"><?= $page['date'] ?></a>
+            </p>
+        </article>
+    <? endforeach; ?>
 <? elseif (is_archive_page()): ?>
     <? foreach($pages as $page): ?>
         <h1><a href="<?= $conf['site_url'] ?><?= $page['permalink'] ?>"><?= $page['title'] ?></a></h1>
