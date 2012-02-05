@@ -25,7 +25,7 @@ header a, h2 a {
     width: 916px; 
     margin: 0 auto; 
     padding: 24px 22px 0 22px;
-    background: url(/images/grid.jpg); 
+    /* background: url(/images/grid.jpg); */
     overflow: hidden;
 }
 
@@ -40,15 +40,22 @@ header {
     }
     
     header nav {
-        float: right; text-align: right;
+        float: right;
+        text-align: right;
         padding: 30px 0 0 0;
+        width: 292px;
     }
         header nav ul {
             list-style: none;
         }
             header nav li {
-                float: left; font-size: 18px;
-                width: 136px; margin: 0 0 0 20px;
+                float: left;
+                font-size: 18px;
+                margin: 0 0 0 36px;
+            }
+            
+            header nav li:first-child {
+                margin-left: 0;
             }
             
             header nav li:nth-child(1):before {
@@ -61,14 +68,6 @@ header {
             }
             header nav li:nth-child(3):before {
                 content: "3. ";
-                color: #a2a2a2;
-            }
-            header nav li:nth-child(4):before {
-                content: "4. ";
-                color: #a2a2a2;
-            }
-            header nav li:nth-child(5):before {
-                content: "5. ";
                 color: #a2a2a2;
             }
             
@@ -90,10 +89,19 @@ header {
             margin: 0 0 24px 0;
         }
         
-        #content .postinfo {
+        #content .postinfo p {
             font-style: italic; 
-            font-size: 0.8em;
-        } 
+            font-size: 0.85em;
+            margin-bottom: 0;
+        }
+        
+        #content article.archives .postinfo {
+            margin-top: -24px;
+        }
+        
+        #content article.archives {
+            margin-bottom: 43px;
+        }
         
 #pagination {
     overflow: hidden; margin: 0 0 120px 0;
@@ -160,20 +168,6 @@ header {
     footer {
         clear: both;
     }
-    footer #credits {
-        list-style: none; float: left; 
-        }           
-        footer #credits li {
-            float: left; margin: 0 6px 0 0;
-        }
-            footer #credits li.wordpress a {
-                display: block; width: 20px; height: 20px;
-                background: url(images/credits.png) no-repeat 0 0; text-indent: -9999px;
-            }
-            footer #credits li.spoongraphics a {
-                display: block; width: 25px; height: 20px;
-                background: url(images/credits.png) no-repeat -30px 0; text-indent: -9999px;
-            }
                 
         footer #back-top {
             float: right; font-size: 12px;

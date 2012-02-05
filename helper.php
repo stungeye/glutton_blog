@@ -19,15 +19,19 @@ function valid_filename($filename, $folder) {
     return (preg_match($pattern, $filename) == 1) && file_exists($folder.$filename);
 }
 
-function process_page_file($filename, $folder, $date_format) {
+function process_page_file($filename, $folder, $date_format, $no_content = false) {
     $pattern = "/^(\d{4})-(\d{2})-(\d{2})-([a-z\-]+)\.markdown$/";
     preg_match($pattern, $filename, $matches);
-    $page['content']   = Markdown(file_get_contents($folder.$filename));
-    $page['title']     = format_title($matches[4]);
-    $page['permalink'] = "/{$matches[1]}/{$matches[2]}/{$matches[3]}/{$matches[4]}";
-    $date              = new DateTime("{$matches[1]}-{$matches[2]}-{$matches[3]}");
-    $page['date']      = $date->format($date_format);
-    $page['epoch_time']= $date->format('U');
+    
+    $page['title']      = format_title($matches[4]);
+    $page['permalink']  = "/{$matches[1]}/{$matches[2]}/{$matches[3]}/{$matches[4]}";
+    $date               = new DateTime("{$matches[1]}-{$matches[2]}-{$matches[3]}");
+    $page['date']       = $date->format($date_format);
+    $page['epoch_time'] = $date->format('U');
+    
+    if (!$no_content) {
+        $page['content'] = Markdown(file_get_contents($folder.$filename));
+    }
     return $page;
 }
 
@@ -35,7 +39,7 @@ function build_filename($year, $month, $day, $title) {
     return "{$year}-{$month}-{$day}-{$title}.markdown";
 }
 
-function fetch_pages($folder, $date_format, $limit = false) {
+function fetch_pages($folder, $date_format, $limit = false, $no_content = false) {
     $pages = array();
     $files = scandir($folder, 1);
     $files = array_slice($files, 0, -2);
@@ -43,7 +47,7 @@ function fetch_pages($folder, $date_format, $limit = false) {
         if ($limit && ($i >= $limit)) {
             break;
         }
-        $pages[] = process_page_file($file, $folder, $date_format);
+        $pages[] = process_page_file($file, $folder, $date_format, $no_content);
     }
     return $pages;
 }

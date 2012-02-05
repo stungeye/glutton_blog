@@ -1,18 +1,16 @@
         </div> <!--! end #content --> 
         <aside id="sidebar">
             <section id="about">
-                <h3>About me</h3>
-                <p>Typo is a WordPress theme based entirely on a balanced typographic design. A strict grid layout keeps everything tidy, allowing the content to shine. <a href="#" class="more">Find out more &raquo;</a></p>
+                <h3>About</h3>
+                <p><?= $conf['about_snippet'] ?> <a href="<?= $conf['site_url'] ?>/about" class="more">Find out more &raquo;</a></p>
             </section>
 
             <section id="latest">
                 <h3>Latest Posts</h3>
                 <ul>
-                    <li><a href="#">Articles</a></li>
-                    <li><a href="#">Design</a></li>
-                    <li><a href="#">Graphics</a></li>
-                    <li><a href="#">Inspiration</a></li>
-                    <li><a href="#">Retro</a></li>
+                    <? foreach($latest_posts as $latest_post): ?>
+                      <li><a href="<?= $conf['site_url'] . $latest_post['permalink'] ?>"><?= $latest_post['title'] ?></a></li>
+                    <? endforeach; ?>
                 </ul>
             </section>
         </aside>
