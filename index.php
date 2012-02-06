@@ -28,7 +28,7 @@
     
     $latest_posts = fetch_pages($conf['pages_folder'],$conf['date_format'],$conf['sidebar_num_latest_posts'],true);
     
-    require 'header.php';
+    require 'views/header.php';
     
     if (is_home_page()) {
         require 'views/home.php';
@@ -38,6 +38,6 @@
         require 'views/page.php';
     }
     
-    require 'footer.php';
+    require 'views/footer.php';
 ?>
 
