@@ -13,6 +13,13 @@ The following blog pages are automatically generated:
 * Permalink Post Pages with Disqus commenting. `/yyyy/mm/dd/title-of-post`
 * Atom 1.0 Feed `/atom`
 
+Includes and Relies On:
+
+* [PHP Markdown Extra](http://michelf.com/projects/php-markdown/extra/)
+* [Highlight.js Syntax Highlighting for Code Blocks](http://softwaremaniacs.org/soft/highlight/en/)
+* [Disqus Comments](http://disqus.com)
+* ModRewrite via `.htaccess` for pretty URLs.
+
 Example Deployed Blog: [http://mobilehtml5.stungeye.com/](http://mobilehtml5.stungeye.com/)
 
 **Note:** This project still needs some refactoring to remove hardcoded Disqus and Google AdSense snippets.
