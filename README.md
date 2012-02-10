@@ -5,6 +5,7 @@ Simple file-system based blogging tool in PHP:
 * Textfiles placed in the pages folder become blog posts.
 * Post files can contain Markdown formatting.
 * Files must be named as follows: `yyyy-mm-dd-title-of-post.markdown`
+* The system is configured via the $conf hash defined in `config.php`
 
 The following blog pages are automatically generated:
 
@@ -22,7 +23,7 @@ Includes and Relies On:
 
 Example Deployed Blog: [http://mobilehtml5.stungeye.com/](http://mobilehtml5.stungeye.com/)
 
-**Note:** This project still needs some refactoring to remove hardcoded Disqus and Google AdSense snippets.
+**Note:** This project still needs some refactoring to remove hardcoded Google AdSense snippets.
 
 ## License
 

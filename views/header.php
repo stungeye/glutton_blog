@@ -10,7 +10,7 @@
     <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
-    </script
+    </script>
     <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
