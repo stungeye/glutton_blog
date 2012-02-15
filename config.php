@@ -2,6 +2,7 @@
 
 $conf['site_url']     = 'http://mobilehtml5.stungeye.com';
 $conf['pages_folder'] = './pages/';
+$conf['drafts_folder']= './drafts/';
 $conf['about_page']   = './about.markdown';
 $conf['blog_name']    = 'Mobile HTML5 Development';
 $conf['blog_author']  = 'Kyle Geske';
@@ -14,10 +15,11 @@ $conf['num_entries_on_homepage'] = 5 ;
 $conf['sidebar_num_latest_posts'] = 5;
 $conf['disqus_shortname'] = 'mobilehtml5dev';
 $conf['google_analytics'] = 'UA-76943-8';
+$conf['feedburner'] = 'MobileHtml5Development';
 
 $conf['sidebar_links'] = array(
     'StungEye'    => 'http://stungeye.com',
-    'Twitter'     => 'http://twitter.com/stungeye',
+    'Twitter'     => 'http://twitter.com/html5mob',
     'Github'      => 'http://github.com/stungeye',
     'Meow Reader' => 'http://meow-reader.tumblr.com');
 

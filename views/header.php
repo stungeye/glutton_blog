@@ -5,7 +5,7 @@
     <title><?= html_title($page['title'], $conf['blog_name']) ?></title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?= $conf['site_url'] ?>/atom" />
+    <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?= $feed_url ?>" />
     <link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/solarized_light.min.css">
     <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
     <script>
@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="<?= $conf['site_url'] ?>/about">About</a></li>
                     <li><a href="<?= $conf['site_url'] ?>/archive">Archives</a></li>
-                    <li><a href="<?= $conf['site_url'] ?>/atom">RSS</a></li>
+                    <li><a href="<?= $feed_url ?>">RSS</a></li>
                 </ul>
             </nav>
         </header>

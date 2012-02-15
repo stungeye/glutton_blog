@@ -16,6 +16,9 @@
     } elseif (is_archive_page()) {
         $page['title'] = 'Archives';
         $pages         = fetch_pages($conf['pages_folder'],$conf['date_format']);
+    } elseif (is_drafts_page()) {
+        $pages         = fetch_pages($conf['drafts_folder'],$conf['date_format'],$conf['num_entries_on_homepage']);
+        $page['title'] = '';
     } elseif (is_home_page()) {
         $pages         = fetch_pages($conf['pages_folder'],$conf['date_format'],$conf['num_entries_on_homepage']);
         $page['title'] = '';
@@ -28,9 +31,15 @@
     
     $latest_posts = fetch_pages($conf['pages_folder'],$conf['date_format'],$conf['sidebar_num_latest_posts'],true);
     
+    if (isset($conf['feedburner'])) {
+        $feed_url = "http://feeds.feedburner.com/{$conf['feedburner']}?format=xml";
+    } else {
+        $feed_url = $conf['site_url'] . '/atom';
+    }
+    
     require 'views/header.php';
     
-    if (is_home_page()) {
+    if (is_home_page() || is_drafts_page()) {
         require 'views/home.php';
     } elseif (is_archive_page()) {
         require 'views/archive.php';

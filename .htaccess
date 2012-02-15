@@ -1,7 +1,8 @@
 Options +FollowSymlinks
 RewriteEngine on
-RewriteRule ^(\d{4})/(\d{2})/(\d{2})/([a-z\-]+)$ ./index.php?year=$1&month=$2&day=$3&title=$4 [NC]
+RewriteRule ^(\d{4})/(\d{2})/(\d{2})/([0-9a-z\-]+)$ ./index.php?year=$1&month=$2&day=$3&title=$4 [NC]
 RewriteRule ^archive/?$ ./index.php?archive
 RewriteRule ^about/?$ ./index.php?about
+RewriteRule ^draft/?$ ./index.php?draft 
 RewriteRule ^atom/?$ ./atom.php
 ErrorDocument 404 /index.php?year=0000&month=00&day=00&title=0

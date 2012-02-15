@@ -8,7 +8,7 @@
             <p id="back-top"><a href="#content">Back to top</a></p>
         </footer>
     </div> <!--! end #wrapper -->
-    <? if(isset($conf['google_analytics'])): ?>
+    <? if(isset($conf['google_analytics']) && !is_drafts_page()): ?>
         <script type="text/javascript">
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', '<?= $conf['google_analytics'] ?>']);

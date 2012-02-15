@@ -15,7 +15,7 @@ function format_title($title) {
 }
 
 function valid_filename($filename, $folder) {
-    $pattern = "/^\d{4}-\d{2}-\d{2}-[a-z\-]+\.markdown$/";
+    $pattern = "/^\d{4}-\d{2}-\d{2}-[0-9a-z\-]+\.markdown$/";
     return (preg_match($pattern, $filename) == 1) && file_exists($folder.$filename);
 }
 
@@ -24,7 +24,7 @@ function file_markdown($filename) {
 }
 
 function process_page_file($filename, $folder, $date_format, $no_content = false) {
-    $pattern = "/^(\d{4})-(\d{2})-(\d{2})-([a-z\-]+)\.markdown$/";
+    $pattern = "/^(\d{4})-(\d{2})-(\d{2})-([0-9a-z\-]+)\.markdown$/";
     preg_match($pattern, $filename, $matches);
     
     $page['title']      = format_title($matches[4]);
@@ -78,6 +78,10 @@ function is_archive_page() {
 
 function is_about_page() {
     return isset($_GET['about']) && (count($_GET) == 1);
+}
+
+function is_drafts_page() {
+   return isset($_GET['draft']) && (count($_GET) == 1);
 }
 
 function is_home_page() {
