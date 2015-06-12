@@ -51,7 +51,9 @@ function fetch_pages($folder, $date_format, $limit = false, $no_content = false)
         if ($limit && ($i >= $limit)) {
             break;
         }
-        $pages[] = process_page_file($file, $folder, $date_format, $no_content);
+        if (pathinfo($file, PATHINFO_EXTENSION) == 'markdown') {
+            $pages[] = process_page_file($file, $folder, $date_format, $no_content);
+        }
     }
     return $pages;
 }
@@ -78,6 +80,10 @@ function is_archive_page() {
 
 function is_about_page() {
     return isset($_GET['about']) && (count($_GET) == 1);
+}
+
+function is_apps_page() {
+    return isset($_GET['apps']) && (count($_GET) == 1);
 }
 
 function is_drafts_page() {
