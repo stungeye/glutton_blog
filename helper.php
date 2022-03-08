@@ -1,5 +1,4 @@
-<?php
-require 'lib/markdown.php';
+<?php require 'lib/markdown.php';
 
 function fetch_page_parameters() {
     $parameter_names = array('year','month','day','title');

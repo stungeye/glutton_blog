@@ -1,5 +1,4 @@
-<?php
-    require 'config.php';
+<?php     require 'config.php';
     require 'helper.php';
 	include("lib/FeedWriter.php");
 	

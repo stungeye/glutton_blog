@@ -83,7 +83,7 @@ header {
 }
 
     #content article {
-        margin: 0 0 67px 0;     
+        margin: 0 0 67px 0;
     }
         #content article h2 {
             font-size: 30px;
@@ -96,8 +96,34 @@ header {
             font-size: 22px;
             margin: 0 0 24px 0;
         }
+        
+        #content article ul, #content article ol {
+            margin: 0 0 24px 0;
+        }
+        
+        #content article pre code {
+            overflow: hidden;
+        }
+        
+        #content article pre code:hover {
+            overflow: visible;
+        }
+        
+        #content article p code {
+            color: #111;
+            font-size: 1.12em;
+        }
+        
+        #content article p img.image_wrap {
+            float: right;
+        }
+        
+        #content article p img.image_wrap_left {
+            float: left;
+            margin: 0 1em 1em 0;
+        }
 
-        #content p {
+        #content article p {
             margin: 0 0 24px 0;
         }
         
@@ -114,6 +140,7 @@ header {
         #content article.archives {
             margin-bottom: 43px;
         }
+        
         
 #pagination {
     overflow: hidden;
@@ -208,4 +235,8 @@ pre {
 
 pre code {
     padding: 8px !important;
+}
+
+iframe {
+    margin-bottom: 24px;
 }

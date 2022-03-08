@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Winnipeg News</title>
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  
+  <div id="main" role="main">
+    
+    <div id="toolbar">
+      <a href="#home" id="back_button" class="hidden">Home</a>
+      <h1>Winnipeg News</h1>
+    </div> <!-- end .toolbar -->
+    
+    <div id="home" class="screen">
+      <ul class="buttons">
+		<li>
+		  <a href="#about_app" class="switch_screen">About This App</a>
+		</li>
+      </ul>
+    </div> <!-- end #home -->
+	
+	
+    <div class="screen hidden" id="feed">
+	  <div id="feed_list"></div>
+	</div>
+    
+    <div class="screen hidden" id="about_app">
+      <h2>About this App</h2>
+      <p>This mobile application was written by <a href="http://stungeye.com" target="_blank">Kyle Geske</a> using HTML5 and <a href="http://phonegap.com" target="_blank" rel="external">Phonegap</a>.</p>
+      <ul>
+		<li><a href="http://mobilehtml5.stungeye.com/2012/03/05/html5-tumblr-mobile-app-part-one" target="_blank" rel="external">How This App was Written</a></li>
+		<li><a href="https://github.com/stungeye/HTML5-Tumblr-Mobile-App" target="_blank" rel="external">App Source Code on Github</a></li>
+      </ul>
+	  <p>The launcher icon photo was <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" rel="external">CC licensed</a> by Flickr user  <a href="http://www.flickr.com/photos/ourania2005/2523775345/" target="_blank" rel="external">Ourania2005</a>.</p>
+    </div> <!-- end #about_app -->
+  </div> <!-- end #main -->
+  
+  <!-- Javascripts -->
+  <!-- Disable the phonegap script for browser based testing. -->
+  <!-- <script type="text/javascript" charset="utf-8" src="js/phonegap-1.4.1.js"></script> -->
+  <script type="text/javascript" src="js/config.js"></script>      
+  <script type="text/javascript" src="js/helper.js"></script>      
+  <script type="text/javascript" src="js/noclickdelay.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>      
+</body>
+</html>

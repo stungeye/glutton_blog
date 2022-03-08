@@ -1,7 +1,7 @@
 <aside id="sidebar">
     <section id="about">
         <h3>About</h3>
-        <p><?= $conf['about_snippet'] ?> <a href="<?= $conf['site_url'] ?>/about" class="more">Find out more &raquo;</a></p>
+        <p><?php echo  $conf['about_snippet'] ?> <a href="<?php echo  $conf['site_url'] ?>/about" class="more">Find out more &raquo;</a></p>
     </section>
 
     <section id="google_sidebar">
@@ -21,24 +21,24 @@
     <section id="latest">
         <h3>Latest Posts</h3>
         <ul>
-            <? foreach($latest_posts as $latest_post): ?>
-              <li><a href="<?= $conf['site_url'] . $latest_post['permalink'] ?>"><?= $latest_post['title'] ?></a></li>
-            <? endforeach; ?>
+            <?php  foreach($latest_posts as $latest_post): ?>
+              <li><a href="<?php echo  $conf['site_url'] . $latest_post['permalink'] ?>"><?php echo  $latest_post['title'] ?></a></li>
+            <?php  endforeach; ?>
         </ul>
     </section>
     
-    <? if (isset($conf['sidebar_links'])): ?>
+    <?php  if (isset($conf['sidebar_links'])): ?>
         <section id="links">
             <h3>Social Links &amp; Other Projects</h3>
             <ul>
-            <? foreach ($conf['sidebar_links'] as $title => $link): ?>
-                <li><a href="<?= $link ?>"><?= $title ?></a></li>
-            <? endforeach; ?>
+            <?php  foreach ($conf['sidebar_links'] as $title => $link): ?>
+                <li><a href="<?php echo  $link ?>"><?php echo  $title ?></a></li>
+            <?php  endforeach; ?>
             </ul>
         </section>
-    <? endif; ?>
+    <?php  endif; ?>
     
-    <? if (is_home_page()): ?>
+    <?php  if (is_home_page()): ?>
         <section id="google_sidebar">
             <script type="text/javascript"><!--
             google_ad_client = "ca-pub-8119657288856342";
@@ -52,5 +52,13 @@
             src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             </script>
         </section>
-    <? endif; ?>
+    <?php  endif; ?>
+    
+    <section id="twitter_widget">
+        <h3>Follow Me on Twitter</h3>
+        <div style="margin-left: -8px;">
+        <a class="twitter-timeline" href="https://twitter.com/html5mob" data-widget-id="567774008490221568">Tweets by @html5mob</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+    </section>
 </aside>

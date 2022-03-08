@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Resistor Calculator</title>
+  <meta name="description" content="A barebones HTML5 resistor colour-band calculator.">
+  <meta name="author" content="Wally Glutton">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- <link rel="stylesheet" href="css/style.css?v=1"> -->
+  <style type="text/css" media="screen">@import "themes/css/jqtouch.css";</style>
+  <link rel="stylesheet" href="css/resistor.css?v=1">
+  <script src="js/classList.min.js"></script>
+  <script src="js/resistor.js"></script>
+  <script src="js/zepto.min.js"></script>
+  <script src="js/jqtouch.min.js"></script> 
+  <script>
+    $.jQTouch({
+        icon: 'icon.png',
+        statusBar: 'black',
+        preloadImages: []
+    });
+  </script> 
+</head>
+
+<body>
+    <div id="jqt">
+        <div id="home" class="current">
+            <div class="toolbar">
+                <h1>Resistor Fun</h1>
+            </div>
+            <div class="scroll">
+                <ul class="rounded">
+                    <li class="arrow"><a href="#three_bands">3 Band Resistors</a></li>
+                    <li class="arrow"><a href="#four_bands">4 Band Resistors</a></li>
+                    <li class="arrow"><a href="#about">About</small></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="about">
+            <div class="toolbar">
+                <h1>About</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+        </div>
+        <div id="three_bands">
+            <div class="toolbar">
+                <h1>3 Bands</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+            <div class="calculator">
+                <p>Select your three colour bands:</p>
+                <form name="resistor_color_code" onsubmit="calculate_resistance('three_bands'); return false;">
+                    <select class="band_1" name="band_1" onchange="calculate_resistance('three_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 1</option>
+                        <option value="0" class="b_black">Black</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="3" class="b_orange">Orange</option>
+                        <option value="4" class="b_yellow">Yellow</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="9" class="b_white">White</option>
+                    </select>
+
+                    <select class="band_2" name="band_2" onchange="calculate_resistance('three_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 2</option>
+                        <option value="0" class="b_black">Black</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="3" class="b_orange">Orange</option>
+                        <option value="4" class="b_yellow">Yellow</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="9" class="b_white">White</option>
+                    </select>
+
+                    <select class="band_3" name="band_3" onchange="calculate_resistance('three_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 3</option>
+                        <option value="0" class="b_black">Black</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="3" class="b_orange">Orange</option>
+                        <option value="4" class="b_yellow">Yellow</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="9" class="b_white">White</option>
+                    </select>
+                </form>
+                <div class="resistor">
+                    <div class="default"> </div>
+                    <div class="default b1"> </div>
+                    <div class="default"> </div>
+                    <div class="default b2"> </div>
+                    <div class="default"> </div>
+                    <div class="default b3"> </div>
+                    <div class="default"> </div>
+                </div>
+                <p class="calculated">
+                    <strong>Resistance:</strong> <span class="resistance"></span>
+                </p>
+            </div> <!--! end of .calculator -->
+        </div> <!--! end of #band3 -->
+        <div id="four_bands">
+            <div class="toolbar">
+                <h1>4 Bands</h1>
+                <a href="#" class="back">Back</a>
+            </div>
+            <div class="calculator">
+                <p>Select your four colour bands:</p>
+                <form name="resistor_color_code" onsubmit="calculate_resistance('four_bands'); return false;">
+                    <select class="band_1" name="band_1" onchange="calculate_resistance('four_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 1</option>
+                        <option value="0" class="b_black">Black</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="3" class="b_orange">Orange</option>
+                        <option value="4" class="b_yellow">Yellow</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="9" class="b_white">White</option>
+                    </select>
+
+                    <select class="band_2" name="band_2" onchange="calculate_resistance('four_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 2</option>
+                        <option value="0" class="b_black">Black</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="3" class="b_orange">Orange</option>
+                        <option value="4" class="b_yellow">Yellow</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="9" class="b_white">White</option>
+                    </select>
+
+                    <select class="band_3" name="band_3" onchange="calculate_resistance('four_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 3</option>
+                        <option value="0" class="b_black">Black</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="3" class="b_orange">Orange</option>
+                        <option value="4" class="b_yellow">Yellow</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="9" class="b_white">White</option>
+                    </select>
+
+                    <select class="band_4" name="band_4" onchange="calculate_resistance('four_bands');">
+                        <option value="n" class="b_band" selected="selected">Band 4</option>
+                        <option value="1" class="b_brown">Brown</option>
+                        <option value="2" class="b_red">Red</option>
+                        <option value="5" class="b_green">Green</option>
+                        <option value="6" class="b_blue">Blue</option>
+                        <option value="7" class="b_violet">Violet</option>
+                        <option value="8" class="b_gray">Gray</option>
+                        <option value="10" class="b_gold">Gold</option>
+                        <option value="11" class="b_silver">Silver</option>
+                    </select>
+                </form>
+                </form>
+                <div class="resistor">
+                    <div class="default"> </div>
+                    <div class="default b1"> </div>
+                    <div class="default"> </div>
+                    <div class="default b2"> </div>
+                    <div class="default"> </div>
+                    <div class="default b3"> </div>
+                    <div class="default"> </div>
+                    <div class="default b4"> </div>
+                    <div class="default"> </div>
+                </div>
+                <p class="calculated">
+                    <strong>Resistance:</strong> <span class="resistance"></span>
+                </p>
+            </div> <!--! end of .calculator -->
+        </div> <!--! end of #band4 -->
+    </div> <!--! end of #jqt -->
+</body>
+</html>

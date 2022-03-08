@@ -1,0 +1,56 @@
+.b_band   {background-color:#ffffff;color:#000000;}
+.b_black  {background-color:#000000;color:#ffffff;}
+.b_brown  {background-color:#b8860b;color:#000000;}
+.b_red    {background-color:#ff0000;color:#000000;}
+.b_orange {background-color:#ffa500;color:#000000;}
+.b_yellow {background-color:#ffff00;color:#000000;}
+.b_green  {background-color:#9acd32;color:#000000;}
+.b_blue   {background-color:#6495ed;color:#000000;}
+.b_violet {background-color:#ee82ee;color:#000000;}
+.b_gray   {background-color:#a0a0a0;color:#000000;}
+.b_white  {background-color:#ffffff;color:#000000;}
+.b_gold   {background-color:#ffd700;color:#000000;}
+.b_silver {background-color:#d9d9d9;color:#000000;}
+.b_none   {background-color:#ffffff;color:#000000;}
+
+html, body, #container {
+	height: 100%;
+	margin: 0;
+}
+body {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#444));
+  background: -webkit-linear-gradient(top, #ddd, #444); 
+}
+
+h1 {
+	padding: 0 5%;
+	margin-bottom: 1em;
+}
+
+#main {
+  font-size: 1.2em;
+  padding: 0 5%;
+}
+
+#calculated {
+	font-size: 1.2em;
+}
+
+#resistor {
+    margin: 2em 0;
+    overflow: auto;
+    border-radius: 8px;
+    width: 105px;
+}
+
+#resistor div {
+	margin: 0;
+	padding: 0;
+    height: 30px;
+    width: 15px;
+    float: left;
+}
+
+#resistor div.default {
+    background-color: #ffc053;
+}

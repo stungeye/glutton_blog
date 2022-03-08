@@ -1,5 +1,4 @@
-<?php
- /**
+<?php  /**
  * Univarsel Feed Writer
  * 
  * FeedItem class - Used as feed element in FeedWriter class

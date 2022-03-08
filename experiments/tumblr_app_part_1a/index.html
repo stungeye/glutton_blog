@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Meow Reader</title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <div id="main" role="main">
+    
+    <div id="toolbar">
+        <a href="#home" id="back_button" class="hidden">Home</a>
+        <h1>Meow Reader</h1>
+    </div> <!-- end .toolbar -->
+      
+    <div id="home" class="screen">
+        <ul class="buttons">
+          <li>
+              <a href="#" id="launch_link">Reading Cats Gallery</a>
+          </li>
+          <li>
+              <a href="#about_meow" class="switch_screen">About Meow Reader</a>
+          </li>
+          <li>
+              <a href="#about_app" class="switch_screen">About This App</a>
+          </li>
+        </ul>
+    </div> <!-- end #home -->
+    
+    <div class="screen hidden" id="about_meow">
+        <h2>About Meow Reader</h2>
+        <p>Photos of cats reading and photos of cats learning how to read.</p>
+    </div> <!-- end #about_meow -->
+
+    <div class="screen hidden" id="about_app">
+        <h2>About this App</h2>
+        <p>This mobile application was written by Kyle Geske using HTML5 and Phonegap.</p>
+    </div> <!-- end #about_app -->
+    
+  </div> <!-- end #main -->
+  <script type="text/javascript" src="js/helper.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>      
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSS Tests</title>
+    <style type='text/css'>
+        h2 {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+        }
+        h2:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        
+    </div>
+<script type="text/javascript">
+
+    var feeds = [
+        { name: 'Winnipeg Free Press', url: 'http://www.winnipegfreepress.com/rss/?path=%2Fbreakingnews' },
+        { name: 'Winnipeg Sun', url: 'http://www.winnipegsun.com/news/rss.xml' },
+        { name: 'CBC Manitoba', url: 'http://rss.cbc.ca/lineup/canada-manitoba.xml' },
+        { name: 'ChrisD', url: 'http://feeds.feedburner.com/chrisd?format=xml' },
+        { name: 'Metro Winnipeg', url: 'http://www.metronews.ca/winnipeg/local/rss' },
+        { name: 'City of Winnipeg', url: 'http://feeds.feedburner.com/WinnipegcaNewsReleases?format=xml' },
+        { name: 'CJOB', url: 'http://www.cjob.com/_Shared/Channels/Public/RSS/GetXMLDataForRSS.ashx?ChannelID=1335' },
+        { name: 'CTV', url: 'http://www.ctv.ca/generic/generated/freeheadlines/rdf/WinnipegHome.xml' },
+        { name: 'Global', url: 'http://feeds.feedburner.com/news/GlobalWinnipeg?format=xml' }
+    ];
+
+    function loadRSS(event) {
+        var target = event.target;
+        var id = target.getAttribute('data-id');
+        //var output_element = document.getElementById('rss_'+id);
+        var output_element = document.getElementById('rss_output');
+
+        xhr.onload = function() { 
+            var xml = xhr.responseXML.documentElement,
+                items = xml.getElementsByTagName('item'),
+                output = "<ul>",
+                title, i;
+            for(i = 0; i < items.length; i++) {
+                title = items[i].getElementsByTagName('title')[0].firstChild.data;
+                url   = items[i].getElementsByTagName('link')[0].firstChild.data
+                output += "<li><a href='" + url + "'>" + title + "</a></li>";
+            }
+            output += "</ul>";
+            output_element.innerHTML = output;
+        };
+
+        xhr.open("GET", "rss.php?url="+feeds[id].url);
+        xhr.responseType = "document";
+        xhr.send();
+    }
+
+    
+    var xhr = new XMLHttpRequest(),
+        content = document.getElementById('content'),
+        header, rss_output, i;
+
+    xhr.onerror = function() {
+       alert("Error loading the RSS document.")
+    }
+    
+    for (var i = 0; i < feeds.length; i++) {
+        header = document.createElement('h2');
+        header.setAttribute('data-id',i);
+        header.addEventListener('click', function(event) { loadRSS(event); });
+        header.innerHTML = feeds[i].name;
+        content.appendChild(header);
+    }
+        rss_output = document.createElement('div');
+        rss_output.setAttribute('id','rss_output');
+        content.appendChild(rss_output);
+</script>
+</body>
+</html>

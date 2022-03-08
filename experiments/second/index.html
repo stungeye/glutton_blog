@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Resistor Calculator</title>
+  <meta name="description" content="A barebones HTML5 resistor colour-band calculator.">
+  <meta name="author" content="Wally Glutton">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/style.css?v=1">
+  <link rel="stylesheet" href="css/resistor.css?v=1">
+  <script src="js/classList.min.js"></script>
+  <script src="js/resistor.js"></script>
+  <script type="text/javascript">
+touchMove = function(event) {
+// Prevent scrolling on this element
+event.preventDefault();
+}
+</script>
+
+</head>
+
+<body>
+
+  <div id="container"  ontouchmove="touchMove(event);">
+    <header>
+        <h1>Resistor Calculator</h1>
+    </header>
+    <div id="main" role="main">
+        <p>Select your three colour bands:</p>
+        <form name="resistor_color_code" id="color_code_form" onsubmit="calculate_resistance(); return false;">
+            <select id="band_1" name="band_1" onchange="calculate_resistance();">
+                <option value="n" class="b_band" selected="selected">Band 1</option>
+                <option value="0" class="b_black">Black</option>
+                <option value="1" class="b_brown">Brown</option>
+                <option value="2" class="b_red">Red</option>
+                <option value="3" class="b_orange">Orange</option>
+                <option value="4" class="b_yellow">Yellow</option>
+                <option value="5" class="b_green">Green</option>
+                <option value="6" class="b_blue">Blue</option>
+                <option value="7" class="b_violet">Violet</option>
+                <option value="8" class="b_gray">Gray</option>
+                <option value="9" class="b_white">White</option>
+            </select>
+
+            <select id="band_2" name="band_2" onchange="calculate_resistance();">
+                <option value="n" class="b_band" selected="selected">Band 2</option>
+                <option value="0" class="b_black">Black</option>
+                <option value="1" class="b_brown">Brown</option>
+                <option value="2" class="b_red">Red</option>
+                <option value="3" class="b_orange">Orange</option>
+                <option value="4" class="b_yellow">Yellow</option>
+                <option value="5" class="b_green">Green</option>
+                <option value="6" class="b_blue">Blue</option>
+                <option value="7" class="b_violet">Violet</option>
+                <option value="8" class="b_gray">Gray</option>
+                <option value="9" class="b_white">White</option>
+            </select>
+
+            <select id="band_3" name="band_3" onchange="calculate_resistance();">
+                <option value="n" class="b_band" selected="selected">Band 3</option>
+                <option value="0" class="b_black">Black</option>
+                <option value="1" class="b_brown">Brown</option>
+                <option value="2" class="b_red">Red</option>
+                <option value="3" class="b_orange">Orange</option>
+                <option value="4" class="b_yellow">Yellow</option>
+                <option value="5" class="b_green">Green</option>
+                <option value="6" class="b_blue">Blue</option>
+                <option value="7" class="b_violet">Violet</option>
+                <option value="8" class="b_gray">Gray</option>
+                <option value="9" class="b_white">White</option>
+            </select>
+        </form>
+        <div id="resistor">
+            <div class="default"> </div>
+            <div class="default" id="b1"> </div>
+            <div class="default"> </div>
+            <div class="default" id="b2"> </div>
+            <div class="default"> </div>
+            <div class="default" id="b3"> </div>
+            <div class="default"> </div>
+        </div>
+        <p id="calculated">
+            <strong>Resistance:</strong> <span id="resistance"></span>
+        </p>
+    </div> <!--! end of #main -->
+
+  </div> <!--! end of #container -->
+
+</body>
+</html>

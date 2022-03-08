@@ -1,17 +1,17 @@
         </div> <!--! end #content -->
-        <? require 'sidebar.php' ?>
+        <?php  require 'sidebar.php' ?>
         <footer>
             <p id="license">
-                Public Domain - 2012
+            Public Domain - <?php echo  date('Y') ?>
             </p>
 
             <p id="back-top"><a href="#content">Back to top</a></p>
         </footer>
     </div> <!--! end #wrapper -->
-    <? if(isset($conf['google_analytics']) && !is_drafts_page()): ?>
+    <?php  if(isset($conf['google_analytics']) && !is_drafts_page()): ?>
         <script type="text/javascript">
           var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', '<?= $conf['google_analytics'] ?>']);
+          _gaq.push(['_setAccount', '<?php echo  $conf['google_analytics'] ?>']);
           _gaq.push(['_trackPageview']);
     
           (function() {
@@ -20,10 +20,10 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
         </script>
-    <? endif; ?>
-    <? if(isset($conf['disqus_shortname'])): ?>
+    <?php  endif; ?>
+    <?php  if(isset($conf['disqus_shortname'])): ?>
         <script type="text/javascript">
-        var disqus_shortname = '<?= $conf['disqus_shortname'] ?>';
+        var disqus_shortname = '<?php echo  $conf['disqus_shortname'] ?>';
         (function () {
             var s = document.createElement('script'); s.async = true;
             s.type = 'text/javascript';
@@ -31,6 +31,6 @@
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
         </script>
-    <? endif; ?>
+    <?php  endif; ?>
 </body>
 </html>

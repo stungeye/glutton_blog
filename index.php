@@ -1,5 +1,4 @@
-<?php
-    require 'config.php';
+<?php     require 'config.php';
     require 'helper.php';
     
     $page = array();
@@ -13,6 +12,9 @@
     } elseif (is_about_page()) {
         $page['title']   = 'About';
         $page['content'] = file_markdown($conf['about_page']);
+    } elseif (is_apps_page()) {
+        $page['title']   = 'Our Mobile Apps';
+        $page['content'] = file_markdown($conf['apps_page']);
     } elseif (is_archive_page()) {
         $page['title'] = 'Archives';
         $pages         = fetch_pages($conf['pages_folder'],$conf['date_format']);
@@ -43,7 +45,7 @@
         require 'views/home.php';
     } elseif (is_archive_page()) {
         require 'views/archive.php';
-    } elseif (is_permalink_page() || is_about_page()) {
+    } elseif (is_permalink_page() || is_about_page() || is_apps_page()) {
         require 'views/page.php';
     }
     

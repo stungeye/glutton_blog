@@ -1,0 +1,5 @@
+**I don't own a smartphone.** My mobile is a flip-style dumbphone from 2007. I don't have a data-plan. **And yet, I want to develop mobile apps.** This is my story, my journey to build mobile applications using only web technologies and emulators.
+
+I don't want to learn [a new programming language](http://en.wikipedia.org/wiki/Objective-C) or [a new Java framework](http://developer.android.com/sdk/index.html). I want to work with HTML5, CSS3, and Javascript. I want to capitalize on the strengths I already have to develop cross-platform mobile applications. I plan on using [Phonegap](http://phonegap.com) to turn my creations into "native" apps.
+
+I will document my mobile-web experiments on this blog, while deploying my finished apps to [the Android Market](https://market.android.com). I invite you to join me on this journey. The adventure begins now.

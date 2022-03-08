@@ -1,4 +1,4 @@
-<? require 'article.php' ?>
+<?php  require 'article.php' ?>
 <div id="google_above_comments">
     <script type="text/javascript"><!--
         google_ad_client = "ca-pub-8119657288856342";
@@ -12,10 +12,10 @@
         src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
 </div>
-<? if(isset($conf['disqus_shortname'])): ?>
+<?php  if(isset($conf['disqus_shortname'])): ?>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-    var disqus_shortname = '<?= $conf['disqus_shortname'] ?>';
+    var disqus_shortname = '<?php echo  $conf['disqus_shortname'] ?>';
     
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -23,4 +23,4 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
-<? endif; ?>
+<?php  endif; ?>

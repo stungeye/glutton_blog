@@ -1,0 +1,15 @@
+* The [Ripple Chrome extension](http://ripple.tinyhippos.com/download) and the new [Ripple Emulator](https://bdsc.webapps.blackberry.com/html5/download/ripple).
+* [PhoneGap](http://phonegap.com/download-thankyou)
+* The [Toura Mulberry](http://mulberry.toura.com/download/) PhoneGap Framework
+* The [M Project](http://the-m-project.org/download/) (Linux or OSx)
+* [HTML5 Mobile Boilerplate](http://html5boilerplate.com/mobile)
+
+Getting Started Guides:
+
+* [PhoneGap Getting Started](http://phonegap.com/start)
+* [Mulberry Getting Started](http://mulberry.toura.com/getting-started/)
+* [Building iPhone Apps with HTML, CSS, and JavaScript](http://ofps.oreilly.com/titles/9780596805784/index.html)
+* [M Project Getting Started](http://the-m-project.org/get-started/)
+* [HTML 5 Compatibility Chart](http://mobilehtml5.org/)
+
+
